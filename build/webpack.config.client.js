@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: {
-    app: path.join(__dirname, "../client/app.js")
+    app: path.join(__dirname, "../src/app.js")
   },
   output: {
     filename: "[name].[hash].js",
@@ -27,7 +27,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: "index.html",
-      template: path.join(__dirname, "../client/template.html"),
+      template: path.join(__dirname, "../src/template.html"),
       inject: true
     })
   ]

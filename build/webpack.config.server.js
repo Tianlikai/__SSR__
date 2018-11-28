@@ -4,7 +4,7 @@ module.exports = {
   target: "node",
   mode: "development",
   entry: {
-    app: path.join(__dirname, "../client/server_entry.js")
+    app: path.join(__dirname, "../src/server_entry.js")
   },
   output: {
     filename: "server_entry.js",
