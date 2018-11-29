@@ -1,24 +1,23 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { AppContainer } from "react-hot-loader";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { AppContainer } from 'react-hot-loader'; // eslint-disable-line
 
-import Hello from "./Hello";
+import Hello from './Hello';
 
-const root = document.getElementById("root");
+const root = document.getElementById('root');
 
-const render = Component =>
-  ReactDOM.hydrate(
-    <AppContainer>
-      <Component />
-    </AppContainer>,
-    root
-  );
+const render = Component => ReactDOM.hydrate(
+  <AppContainer>
+    <Component />
+  </AppContainer>,
+  root,
+);
 
 render(Hello);
 
 if (module.hot) {
-  module.hot.accept("./Hello", () => {
-    const nextApp = require("./Hello").default;
+  module.hot.accept('./Hello', () => {
+    const nextApp = require('./Hello').default; // eslint-disable-line
     render(nextApp);
   });
 }

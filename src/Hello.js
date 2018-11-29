@@ -1,7 +1,5 @@
-import React from "react";
+import React from 'react';
 
-export default class Hello extends React.Component {
-  render() {
-    return <div>hello world!</div>;
-  }
-}
+const Hello = () => <div>hello world!</div>;
+
+export default Hello;
