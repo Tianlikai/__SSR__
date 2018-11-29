@@ -2,7 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const isDev = (process.env.NODE_ENV = "development");
+const isDev = process.env.NODE_ENV === "development";
 
 const config = {
   mode: "development",
@@ -12,7 +12,7 @@ const config = {
   output: {
     filename: "[name].[hash].js",
     path: path.join(__dirname, "../dist"),
-    publicPath: "/public"
+    publicPath: "/public/"
   },
   module: {
     rules: [
@@ -48,7 +48,7 @@ if (isDev) {
     overlay: {
       errors: true // 错误信息提示
     },
-    publicPath: "/public",
+    publicPath: "/public/",
     historyApiFallback: {
       index: "/public/index.html"
     }
