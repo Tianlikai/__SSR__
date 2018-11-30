@@ -15,7 +15,6 @@
     }
   },
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
-    "quotes": [2, "single", "avoid-escape"]
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }]
   }
 }

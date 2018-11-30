@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader'; // eslint-disable-line
+import { AppContainer } from 'react-hot-loader';
 
-import Hello from './Hello';
+import Hello from './components/Hello';
 
 const root = document.getElementById('root');
 
@@ -16,8 +16,8 @@ const render = Component => ReactDOM.hydrate(
 render(Hello);
 
 if (module.hot) {
-  module.hot.accept('./Hello', () => {
-    const nextApp = require('./Hello').default; // eslint-disable-line
+  module.hot.accept('./components/Hello', () => {
+    const nextApp = require('./components/Hello').default; // eslint-disable-line
     render(nextApp);
   });
 }

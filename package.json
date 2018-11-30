@@ -9,8 +9,10 @@
     "build": "npm run clear && npm run build:client && npm run build:server",
     "start": "node server/index.js",
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.config.client",
-    "dev:server": "cross-env NODE_ENV=development node server/index.js",
-    "clear": "rimraf dist"
+    "dev:server": "cross-env NODE_ENV=development nodemon server/index.js",
+    "clear": "rimraf dist",
+    "lint": "eslint --ext .js src/",
+    "precommit": "npm run lint"
   },
   "author": "JasonT",
   "license": "ISC",
@@ -18,7 +20,8 @@
     "axios": "^0.18.0",
     "express": "^4.16.4",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react-dom": "^16.6.3",
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
@@ -40,13 +43,16 @@
     "eslint-plugin-standard": "^4.0.0",
     "html-webpack-plugin": "^3.2.0",
     "http-proxy-middleware": "^0.19.1",
+    "husky": "^1.2.0",
     "install": "^0.12.2",
     "memory-fs": "^0.4.1",
+    "nodemon": "^1.18.7",
     "npm": "^6.4.1",
     "react-hot-loader": "^4.3.12",
     "rimraf": "^2.6.2",
     "webpack": "^4.26.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "webpack-dev-server": "^3.1.10",
+    "webpack-merge": "^4.1.4"
   }
 }
