@@ -22,3 +22,15 @@
 ## nodemon
 
 配置 nodemon.json,只在更改 指定 js 代码时 兼听监听并重启代码
+
+## 路由
+
+html5 中有一个 history API，让我们能够让我们控制页面跳转
+
+### React-router
+
+> react-router
+
+## 数据流解决方案
+
+简单实用的 mobxJs

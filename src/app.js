@@ -1,22 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader'; // eslint-disable-line
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import Hello from './components/Hello';
+import App from './routes/App';
 
 const root = document.getElementById('root');
 const render = Component => ReactDOM.hydrate(
   <AppContainer>
-    <Component />
+    <Router>
+      <Component />
+    </Router>
   </AppContainer>,
   root,
 );
 
-render(Hello);
+render(App);
 
 if (module.hot) {
-  module.hot.accept('./components/Hello', () => {
-    const nextApp = require('./components/Hello').default; // eslint-disable-line
+  module.hot.accept('./routes/App', () => {
+    const nextApp = require('./routes/App').default; // eslint-disable-line
     render(nextApp);
   });
 }

@@ -1,4 +1,4 @@
 import React from 'react';
-import Hello from './components/Hello';
+import App from './routes/App';
 
-export default <Hello />;
+export default <App />;
