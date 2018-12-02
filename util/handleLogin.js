@@ -9,7 +9,6 @@ router.post('/login', (req, res, next) => {
       accesstoken: req.body.accessToken,
     })
     .then((resp) => {
-      debugger;
       if (resp.status === 200 && resp.data.success) {
         req.session.user = {
           id: resp.data.id,
@@ -24,7 +23,6 @@ router.post('/login', (req, res, next) => {
       }
     })
     .catch((err) => {
-      debugger;
       if (err.response) {
         res.json({
           success: false,

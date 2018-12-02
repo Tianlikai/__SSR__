@@ -21,7 +21,7 @@ const proxy = (req, res, next) => {
     method: req.method,
     params: query,
     data: Object.assign({}, req.body, {
-      accesstoken: user.accesstoken,
+      accesstoken: user && user.accesstoken,
     }),
     headers: {
       'Content-Type': 'application/x-www-form-urlencode',
