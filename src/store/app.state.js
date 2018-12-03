@@ -7,9 +7,9 @@ class AppState {
   @observable
   name;
 
-  constructor() {
-    this.count = 0;
-    this.name = 'Jason';
+  constructor({ count, name } = { count: 0, name: 'jason' }) {
+    this.count = count;
+    this.name = name;
   }
 
   @computed get msg() {
@@ -25,12 +25,18 @@ class AppState {
   changeName(name) {
     this.name = name;
   }
+
+  @action
+  changeCount(number) {
+    this.count = number;
+  }
+
+  toJson() {
+    return {
+      count: this.count,
+      name: this.name,
+    };
+  }
 }
 
-const appState = new AppState();
-
-setInterval(() => appState.add(), 1000);
-
-export default appState;
-
-export { AppState };
+export default AppState;

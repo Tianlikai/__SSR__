@@ -1,9 +1,12 @@
+const ejs = require('ejs');
 const path = require('path');
 const axios = require('axios');
 const MFS = require('memory-fs'); // eslint-disable-line
 const webpack = require('webpack'); // eslint-disable-line
 const proxy = require('http-proxy-middleware'); // eslint-disable-line
+const serialize = require('serialize-javascript');
 const ReactDomServer = require('react-dom/server');
+const bootstrapper = require('react-async-bootstrapper');
 const serverConfig = require('../build/webpack.config.server');
 
 /**
@@ -13,7 +16,7 @@ const serverConfig = require('../build/webpack.config.server');
  */
 const getTemplate = () => new Promise((resolve, reject) => {
   axios
-    .get('http://0.0.0.0:8888/public/index.html')
+    .get('http://0.0.0.0:8888/public/server.ejs')
     .then((res) => {
       resolve(res.data);
     })
@@ -26,6 +29,7 @@ const getTemplate = () => new Promise((resolve, reject) => {
 const Module = module.constructor;
 const mfs = new MFS();
 let serverBundle;
+let createStoreMap;
 
 const serverCompiler = webpack(serverConfig);
 serverCompiler.outputFileSystem = mfs;
@@ -46,7 +50,17 @@ serverCompiler.watch({}, (err, states) => {
   const m = new Module();
   m._compile(bundle, 'server_entry.js'); // eslint-disable-line
   serverBundle = m.exports.default;
+  createStoreMap = m.exports.createStoreMap; // eslint-disable-line
 });
+
+// 此处有问题
+const getStoreState = (stores) => {
+  const keys = Object.keys(stores);
+  return keys.reduce((result, storeName) => {
+    result[storeName] = stores[storeName].toJson(); // eslint-disable-line
+    return result;
+  }, {});
+};
 
 module.exports = function devSsrRender(app) {
   /**
@@ -63,8 +77,31 @@ module.exports = function devSsrRender(app) {
 
   app.get('*', (req, res) => {
     getTemplate().then((template) => {
-      const content = ReactDomServer.renderToString(serverBundle);
-      res.send(template.replace('<!-- app -->', content));
+      const routerContext = {};
+      const store = createStoreMap();
+      const apps = serverBundle(store, routerContext, req.url);
+
+      console.log('----');
+      console.log(routerContext);
+      console.log('----');
+
+      if (routerContext.url) {
+        res.status(302).setHeader('Location', routerContext.url);
+        res.end();
+        return;
+      }
+
+      bootstrapper(app).then(() => {
+        const content = ReactDomServer.renderToString(apps);
+
+        const state = getStoreState(store);
+
+        const html = ejs.render(template, {
+          appString: content,
+          initialState: serialize(state),
+        });
+        res.send(html);
+      });
     });
   });
 };

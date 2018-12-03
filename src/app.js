@@ -6,8 +6,11 @@ import { BrowserRouter } from 'react-router-dom';
 
 import App from './routes/App';
 
-import appState from './store/app.state';
+import AppState from './store/app.state';
 
+const initialState = window.__INITIAL__STATE__ || {}; // eslint-disable-line
+
+const appState = new AppState(initialState.appState);
 const store = {
   appState,
 };
