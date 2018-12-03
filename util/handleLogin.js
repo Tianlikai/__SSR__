@@ -26,7 +26,7 @@ router.post('/login', (req, res, next) => {
       if (err.response) {
         res.json({
           success: false,
-          data: err.response,
+          data: err.response.data,
         });
       } else {
         next(err); // 全局错误处理器，处理
