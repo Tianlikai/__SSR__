@@ -6,10 +6,10 @@
   "scripts": {
     "build:client": "webpack --config ./build/webpack.config.client",
     "build:server": "webpack --config ./build/webpack.config.server",
-    "build": "npm run clear && npm run build:client && npm run build:server",
-    "start": "node server/index.js",
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.config.client",
     "dev:server": "cross-env NODE_ENV=development nodemon server/index.js",
+    "build": "npm run clear && npm run build:client && npm run build:server",
+    "start": "cross-env NODE_ENV=production node server/index.js",
     "clear": "rimraf dist",
     "lint": "eslint --ext .js src/",
     "precommit": "npm run lint"

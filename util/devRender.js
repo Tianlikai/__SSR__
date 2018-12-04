@@ -1,16 +1,14 @@
 const vm = require('vm');
-const ejs = require('ejs');
 const path = require('path');
 const axios = require('axios');
 const MFS = require('memory-fs'); // eslint-disable-line
 const webpack = require('webpack'); // eslint-disable-line
 const NativeModule = require('module');
-const Helmet = require('react-helmet').default;
 const proxy = require('http-proxy-middleware'); // eslint-disable-line
-const serialize = require('serialize-javascript');
-const ReactDomServer = require('react-dom/server');
-const bootstrapper = require('react-async-bootstrapper');
 const serverConfig = require('../build/webpack.config.server');
+
+const serverRender = require('./serverRender');
+
 /**
  * 开发环境启动webpack-dev-server时，template不不写在内存中
  * 需要动态获取实时获取template
@@ -42,7 +40,6 @@ const getModuleFromString = (bundle, filename) => {
 
 const mfs = new MFS();
 let serverBundle;
-let createStoreMap;
 
 const serverCompiler = webpack(serverConfig);
 serverCompiler.outputFileSystem = mfs;
@@ -61,17 +58,8 @@ serverCompiler.watch({}, (err, states) => {
 
   const bundle = mfs.readFileSync(bundlePath, 'utf-8');
   const m = getModuleFromString(bundle, 'server_entry.js');
-  serverBundle = m.exports.default;
-  createStoreMap = m.exports.createStoreMap; // eslint-disable-line
+  serverBundle = m.exports;
 });
-
-const getStoreState = (stores) => {
-  const keys = Object.keys(stores);
-  return keys.reduce((result, storeName) => {
-    result[storeName] = stores[storeName].toJson(); // eslint-disable-line
-    return result;
-  }, {});
-};
 
 module.exports = function devSsrRender(app) {
   /**
@@ -86,33 +74,13 @@ module.exports = function devSsrRender(app) {
     }),
   );
 
-  app.get('*', (req, res) => {
-    getTemplate().then((template) => {
-      const routerContext = {};
-      const store = createStoreMap();
-      const apps = serverBundle(store, routerContext, req.url);
+  app.get('*', (req, res, next) => {
+    if (!serverBundle) {
+      return res.send('waiting for compile! refresh later!');
+    }
 
-      if (routerContext.url) {
-        res.status(302).setHeader('Location', routerContext.url);
-        res.end();
-        return;
-      }
-
-      bootstrapper(app).then(() => {
-        const content = ReactDomServer.renderToString(apps);
-
-        const state = getStoreState(store);
-        const helmet = Helmet.rewind();
-        const html = ejs.render(template, {
-          appString: content,
-          initialState: serialize(state),
-          meta: helmet.meta.toString(),
-          title: helmet.title.toString(),
-          link: helmet.link.toString(),
-          style: helmet.link.toString(),
-        });
-        res.send(html);
-      });
-    });
+    return getTemplate()
+      .then(template => serverRender(serverBundle, template, req, res))
+      .catch(next);
   });
 };
