@@ -19,6 +19,15 @@ module.exports = {
         loader: 'babel-loader',
         exclude: [path.join(__dirname, '../node_modules')],
       },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {},
+          },
+        ],
+      },
     ],
   },
 };

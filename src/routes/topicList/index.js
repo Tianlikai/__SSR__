@@ -4,6 +4,8 @@ import { observer, inject } from 'mobx-react';
 import Helmet from 'react-helmet';
 import AppState from '../../store/app.state';
 
+import img from './IMG.png';
+
 @inject('appState')
 @observer
 export default class TopicList extends React.Component {
@@ -37,6 +39,8 @@ export default class TopicList extends React.Component {
         </Helmet>
         <input type="text" onChange={this.changeName} />
         <span>{msg}</span>
+        <br />
+        <img src={img} alt="test" />
       </div>
     );
   }
