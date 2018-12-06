@@ -52,8 +52,8 @@ function getInitStyle() {
     width = 375;
   } else if (clientWidth <= 768) {
     width = 384 * (clientWidth / 768) * 2;
-  } else if (clientWidth <= 1200) {
-    width = 375 * (clientWidth / 1200);
+  } else if (clientWidth <= 1920) {
+    width = 375 * (clientWidth / 1920);
   } else {
     width = 375;
   }

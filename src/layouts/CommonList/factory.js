@@ -66,7 +66,7 @@ const factory = (Loading, breadcrumbCn, headerCn, listCn) => (data) => {
           </CommonLayoutHeader>
           <CommonLayoutContent>
             {loading && <Loading />}
-            {!loading && count === 0 && <div>没有相关信息～</div>}
+            {!loading && count === 0 && <div className="with-noInfo">没有相关信息～</div>}
             <ListCard className={listCn} config={list} ARTICLE_TYPE={ARTICLE_DETAIL_TYPE} />
             {/* <div className='pagination-container'>
                             <Pagination
