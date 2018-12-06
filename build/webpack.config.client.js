@@ -7,6 +7,7 @@ const baseConfig = require('./webpack.base.config');
 
 const isDev = process.env.NODE_ENV === 'development';
 
+/* eslint-disable global-require */
 const config = webpackMerge(baseConfig, {
   mode: 'development',
   entry: {
@@ -14,6 +15,42 @@ const config = webpackMerge(baseConfig, {
   },
   output: {
     filename: '[name].[hash].js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.s(a|c)ss$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'sass-loader',
+            options: { importLoaders: 1 },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              ident: 'postcss',
+              parser: 'postcss-scss',
+              plugins: () => [
+                require('autoprefixer')({
+                  browsers: ['last 10 version', 'ie >= 10'],
+                }),
+              ],
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
