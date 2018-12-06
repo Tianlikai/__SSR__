@@ -3,7 +3,7 @@ const queryString = require('query-string');
 
 const baseUrl = 'https://cnodejs.org/api/v1';
 
-const proxy = (req, res, next) => {
+const proxy = (req, res) => {
   const { path } = req;
   const { user } = req.session;
   const { needAccessToken } = req.query;

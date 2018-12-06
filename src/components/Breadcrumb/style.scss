@@ -1,0 +1,29 @@
+.breadcrumb {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.43);
+  line-height: 37px;
+  a {
+    color: rgba(0, 0, 0, 0.43);
+    text-decoration: none;
+  }
+  a:hover {
+    color: #1d76a4;
+  }
+  a:focus {
+    text-decoration: none;
+  }
+  a:active {
+    text-decoration: none;
+  }
+  span {
+    .breadItem-separator {
+      padding: 0 4px;
+    }
+  }
+  span:last-child .breadItem-label {
+    color: rgba(0, 0, 0, 0.64);
+  }
+  span:last-child .breadItem-separator {
+    display: none;
+  }
+}

@@ -1,0 +1,37 @@
+.list-container {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size: 0.2rem;
+    color: #333;
+    padding-bottom: 0.16rem;
+    &:last-child {
+      padding-bottom: 0;
+    }
+    &:hover {
+      color: #1d76a4;
+    }
+    .list-text {
+      width: 4rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+@media (max-width: 769px) {
+  .list-container {
+    li {
+      font-size: 0.15rem;
+      .list-text {
+        width: 70%;
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+.T-layoutHeader {
+  height: auto !important;
+  .T-article-breadcrumb {
+    font-size: 0.18rem;
+    font-weight: 450;
+    line-height: 0.18rem;
+    line-height: 1rem;
+    .breadItem-item {
+      a {
+        .breadItem-label {
+          color: #666;
+        }
+      }
+    }
+    span:last-child .breadItem-label {
+      color: #999;
+    }
+  }
+  .T-article-title {
+    color: #333;
+    font-size: 0.24rem;
+    font-weight: 500;
+    padding: 0.15rem 0 0.05rem 0;
+    cursor: default;
+  }
+
+  .T-article-time {
+    color: #666;
+    font-size: 0.18rem;
+    padding: 0 0 0.2rem 0;
+  }
+}
+.T-layoutContent {
+  .htmlWrapper {
+    margin-bottom: 0.4rem;
+    min-height: 80vh;
+    font-size: 0.16rem;
+    word-wrap: break-word;
+  }
+}
+
+@media (max-width: 769px) {
+  .T-layoutHeader {
+    .T-article-breadcrumb {
+      display: none;
+    }
+    .T-article-title {
+      font-size: 0.16rem;
+      padding: 0.2rem 0 0.05rem 0;
+    }
+
+    .T-article-time {
+      font-size: 0.14rem;
+      padding: 0 0 0.15rem 0;
+    }
+  }
+  .T-layoutContent {
+    .htmlWrapper {
+      font-size: 0.15rem;
+      line-height: 0.24rem;
+    }
+  }
+}

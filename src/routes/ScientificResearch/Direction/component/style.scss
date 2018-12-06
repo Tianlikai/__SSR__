@@ -1,0 +1,15 @@
+.contentText {
+  font-size: 0.16rem;
+  color: #333;
+  text-align: justify;
+  margin-bottom: 0.7rem;
+  h4.self-h4 {
+    text-indent: 2em;
+  }
+}
+
+@media (max-width: 769px) {
+  .contentText {
+    font-size: 0.15rem;
+  }
+}

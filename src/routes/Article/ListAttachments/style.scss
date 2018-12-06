@@ -1,0 +1,23 @@
+.attachments-container {
+  div {
+    cursor: pointer;
+    color: #333;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 500;
+    &:hover {
+      text-decoration: underline;
+      color: #1890ff;
+    }
+  }
+  margin-bottom: 0.4rem;
+}
+
+@media (max-width: 769px) {
+  .attachments-container {
+    div {
+      cursor: pointer;
+      font-size: 0.16rem;
+    }
+  }
+}

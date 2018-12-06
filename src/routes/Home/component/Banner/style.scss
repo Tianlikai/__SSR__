@@ -1,0 +1,75 @@
+.self-carousel {
+  background: #f2f2f2;
+  height: 5rem;
+  .ant-carousel {
+    width: 12rem;
+    height: 5rem;
+    margin: 0 auto;
+    .slick-slide {
+      height: 5rem;
+      overflow: hidden;
+      .carousel-card {
+        position: relative;
+        cursor: pointer;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    .slick-dots {
+      bottom: 0.3rem;
+      li {
+        margin: 0 6px;
+      }
+      li button {
+        width: 0.12rem;
+        height: 0.12rem;
+        border-radius: 50%;
+        background-color: #dedede;
+      }
+      li.slick-active button {
+        background-color: #fff;
+      }
+    }
+  }
+  .myLoader {
+    width: 12rem;
+    height: 5rem;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .self-carousel {
+    width: 3.75rem;
+    height: 1.5625rem;
+    .ant-carousel {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      .slick-slide {
+        height: 100%;
+        overflow: hidden;
+        .carousel-card {
+          cursor: pointer;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      .slick-dots {
+        top: 1.4rem;
+        li button {
+          width: 0.08rem;
+          height: 0.08rem;
+        }
+      }
+    }
+    .myLoader {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

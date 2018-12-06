@@ -1,0 +1,48 @@
+.listItems-container {
+}
+.self-listCard {
+  .T-item {
+    justify-content: end;
+    .T-item-info {
+      .T-item-info-title {
+        margin-top: 0;
+        font-size: 0.22rem;
+      }
+      .T-item-info-subTitle {
+        font-size: 0.18rem;
+      }
+      .T-item-info-Brief {
+        display: block;
+      }
+    }
+  }
+}
+.T-ellipse {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.T-mul-ellipse {
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .self-listCard {
+    .T-item {
+      .T-item-info {
+        .T-item-info-title {
+          font-size: 0.16rem;
+        }
+        .T-item-info-subTitle {
+          font-size: 0.15rem;
+        }
+      }
+    }
+  }
+}

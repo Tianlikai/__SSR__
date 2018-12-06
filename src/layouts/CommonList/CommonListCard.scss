@@ -1,0 +1,89 @@
+.T-card-breadcrumb {
+  font-size: 0.18rem;
+  line-height: 1rem;
+  font-weight: 450;
+  .breadItem-item {
+    a {
+      .breadItem-label {
+        color: #666;
+      }
+    }
+  }
+  span:last-child .breadItem-label {
+    color: #999;
+  }
+}
+
+.T-card-header {
+  display: none;
+}
+
+.T-card-list {
+  .T-item {
+    border: none;
+    padding-bottom: 0;
+    margin-bottom: 0.65rem;
+    .T-item-logo {
+      flex: 0 0 28%;
+      max-width: 28%;
+      min-width: 28%;
+      width: 28%;
+      height: 15%;
+      margin-right: 3.3%;
+    }
+    .T-item-info {
+      width: 68.7%;
+      .T-item-info-title {
+        margin-top: 0.15rem;
+        font-weight: normal;
+        &:hover {
+          color: #1d76a4;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+      .T-item-info-subTitle {
+        font-size: 0.16rem;
+        color: #666;
+      }
+      .T-item-info-Brief {
+        font-size: 0.16rem;
+        color: #666;
+      }
+    }
+  }
+}
+
+@media (max-width: 769px) {
+  .T-card-breadcrumb {
+    display: none;
+  }
+
+  .T-card-header {
+    display: block;
+    line-height: 0.7rem;
+  }
+
+  .T-card-list {
+    .T-item {
+      flex-direction: row;
+      .T-item-info {
+        .T-item-info-title {
+          margin-top: 0;
+          margin-bottom: 0.01rem;
+          height: 0.24rem;
+          line-height: 0.24rem;
+          text-align: left;
+        }
+        .T-item-info-subTitle {
+          margin-bottom: 0.01rem;
+          font-size: 0.12rem;
+          text-align: left;
+        }
+        .T-item-info-Brief {
+          font-size: 0.12rem;
+        }
+      }
+    }
+  }
+}
