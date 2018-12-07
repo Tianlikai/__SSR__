@@ -43,3 +43,24 @@ html5 中有一个 history API，让我们能够让我们控制页面跳转
 - new render types 允许 react 返回数组和字符串（不需要一定需要根结点 div，去掉不必要的 div）
 - Portals 将组件插入到指定的 dom 节点中（应用场景浮层，modal）
 - better server-side-render
+
+## 已经完成的问题
+
+- eslint editConfig 限制代码格式
+- webpack 基础配置
+- 基础服务端渲染
+- 开发技术栈引入
+- router 配置
+- 页面编写
+
+## 目前解决问题
+
+上下优先级
+
+- 实现服务端数据代理
+- 优化 axios 请求
+- 服务端实现异步加载组件
+- 实现 css lint（pre-commit-hock）
+- router 权限配置
+- 三方库分离
+- css 提取，公共 css 提取
