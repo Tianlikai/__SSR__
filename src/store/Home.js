@@ -1,9 +1,7 @@
-import {
-  observable,
-  //  action
-} from 'mobx';
+import { observable, action } from 'mobx';
 
-// import QINIU_DOMAIN from '../config/setting';
+import api from '../api/axios';
+import DOMAIN from '../config/setting';
 
 // import { message } from 'antd'
 
@@ -92,61 +90,59 @@ class Home {
     ];
   }
 
-  // @action
-  // initListBanner() {
-  //   G.api
-  //     .initListBanner()
-  //     .then((data) => {
-  //       data.map((item) => {
-  //         const info = Object.assign({}, ...item);
-  //         info.imgUrl = item.imgUrl.indexOf(QINIU_DOMAIN) < 0 ?
-  // QINIU_DOMAIN + item.imgUrl : item.imgUrl;
-  //         return info;
-  //       });
-  //       this.listBanner = data;
-  //     })
-  //     .catch(() => {
-  //       console.error('获取Banner失败');
-  //     });
-  // }
+  @action
+  initListBanner() {
+    api
+      .initListBanner()
+      .then((data) => {
+        data.map((item) => {
+          const info = Object.assign({}, ...item);
+          info.imgUrl = item.imgUrl.indexOf(DOMAIN) < 0 ? DOMAIN + item.imgUrl : item.imgUrl;
+          return info;
+        });
+        this.listBanner = data;
+      })
+      .catch(() => {
+        console.error('获取Banner失败');
+      });
+  }
 
-  // @action
-  // initRecentList({ error = '获取数据失败', type }) {
-  //   if (type === 1) {
-  //     this.listSubBanner.loading = true;
-  //   } else if (type === 2) {
-  //     this.listResearch.loading = true;
-  //   }
-  //   G.api
-  //     .getRecentList({ params: { type } })
-  //     .then((data) => {
-  //       if (type === 1) {
-  //         const list = data.map((item) => {
-  //           const info = Object.assign({}, ...item);
-  //           info.cover = item.cover.indexOf(QINIU_DOMAIN) < 0 ?
-  //  QINIU_DOMAIN + item.cover : item.cover;
-  //           return info;
-  //         });
-  //         this.listSubBanner = {
-  //           loading: false,
-  //           list,
-  //         };
-  //       } else if (type === 2) {
-  //         const list = data.map((item) => {
-  //           const info = Object.assign({}, ...item);
-  //           info.publishAt = item.publishAt.substring(0, 10);
-  //           return info;
-  //         });
-  //         this.listResearch = {
-  //           loading: false,
-  //           list,
-  //         };
-  //       }
-  //     })
-  //     .catch(() => {
-  //       console.error(error);
-  //     });
-  // }
+  @action
+  initRecentList({ error = '获取数据失败', type }) {
+    if (type === 1) {
+      this.listSubBanner.loading = true;
+    } else if (type === 2) {
+      this.listResearch.loading = true;
+    }
+    api
+      .getRecentList({ params: { type } })
+      .then((data) => {
+        if (type === 1) {
+          const list = data.map((item) => {
+            const info = Object.assign({}, ...item);
+            info.cover = item.cover.indexOf(DOMAIN) < 0 ? DOMAIN + item.cover : item.cover;
+            return info;
+          });
+          this.listSubBanner = {
+            loading: false,
+            list,
+          };
+        } else if (type === 2) {
+          const list = data.map((item) => {
+            const info = Object.assign({}, ...item);
+            info.publishAt = item.publishAt.substring(0, 10);
+            return info;
+          });
+          this.listResearch = {
+            loading: false,
+            list,
+          };
+        }
+      })
+      .catch(() => {
+        console.error(error);
+      });
+  }
 }
 
 export default Home;

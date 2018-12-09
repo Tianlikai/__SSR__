@@ -24,16 +24,16 @@ class Dashboard extends React.Component {
   };
 
   componentDidMount() {
-    // const { HomeStore } = this.props;
-    // HomeStore.initListBanner();
+    const { homeStore } = this.props;
+    homeStore.initListBanner();
     // HomeStore.initRecentList({
     //   type: 1,
     //   error: '获取动态文章列表失败',
     // });
-    // HomeStore.initRecentList({
-    //   type: 2,
-    //   error: '获取最新成果列表失败',
-    // });
+    homeStore.initRecentList({
+      type: 2,
+      error: '获取最新成果列表失败',
+    });
   }
 
   handleMove = (record) => {

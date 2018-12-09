@@ -1,7 +1,8 @@
 const axios = require('axios');
 const queryString = require('query-string');
 
-const baseUrl = 'https://cnodejs.org/api/v1';
+// const baseUrl = 'https://cnodejs.org/api/v1';
+const baseUrl = 'https://learnta.cn';
 
 const proxy = (req, res) => {
   const { path } = req;
@@ -33,7 +34,7 @@ const proxy = (req, res) => {
       }),
     ),
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
+      'Content-Type': 'application/json;charset=utf-8',
     },
   })
     .then((resp) => {
