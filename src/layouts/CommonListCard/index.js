@@ -1,10 +1,9 @@
 import React from 'react';
 
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react';
 import { withRouter } from 'react-router-dom';
 
-// import { Pagination } from 'antd'
 import { Helmet } from 'react-helmet';
 
 import CommonHeader from '../CommonHeader';
@@ -26,30 +25,39 @@ const factory = (data) => {
   @inject(store)
   @observer
   class ListContainer extends React.Component {
-    // static propTypes = {
-    //   match: PropTypes.object,
-    // };
+    static propTypes = {
+      match: PropTypes.object,
+      history: PropTypes.object,
+    };
 
-    // componentDidMount() {
-    //   const {
-    //     match: {
-    //       params: { page },
-    //     },
-    //   } = this.props;
-    //   this.props[store].initList({ pageNo: page });
-    // }
+    componentDidMount() {
+      const {
+        match: {
+          params: { page },
+        },
+      } = this.props;
+      this.props[store].initList({ pageNo: page }); // eslint-disable-line
+    }
 
-    // componentWillReceiveProps(nextProps) {
-    //   const { page: oldPage } = this.props.match.params;
-    //   const { page } = nextProps.match.params;
-    //   if (page === oldPage) return null;
-    //   this.props[store].initList({ pageNo: page });
-    // }
+    componentWillReceiveProps(nextProps) {
+      const {
+        match: { params },
+      } = this.props;
+      const { page: oldPage } = params;
+      const { page } = nextProps.match.params;
+      if (page === oldPage) return null;
+      this.props[store].initList({ pageNo: page }); // eslint-disable-line
+      return null;
+    }
 
-    // handleChangePage = (page) => {
-    //   const route = this.props.match.path.replace(':page', page);
-    //   this.props.history.push(`${route}`);
-    // };
+    handleChangePage = (page) => {
+      const {
+        history,
+        match: { path },
+      } = this.props;
+      const route = path.replace(':page', page);
+      history.push(`${route}`);
+    };
 
     render() {
       //   const { match } = this.props;

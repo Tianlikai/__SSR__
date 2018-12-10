@@ -1,9 +1,6 @@
-import {
-  observable,
-  // action
-} from 'mobx';
+import { observable, action } from 'mobx';
 
-// import { message } from 'antd'
+import api from '../api/axios';
 
 class Detail {
   @observable
@@ -21,22 +18,22 @@ class Detail {
     };
   }
 
-  //   @action
-  //   getCcnuArticleDetail(id) {
-  //     this.data.loading = true;
-  //     G.api
-  //       .getCcnuArticleDetail({ urlParams: { articleId: id } })
-  //       .then((data) => {
-  //         const info = data;
-  //         this.data = {
-  //           loading: false,
-  //           info,
-  //         };
-  //       })
-  //       .catch((data) => {
-  //         console.error('获取详情失败');
-  //       });
-  //   }
+  @action
+  getCcnuArticleDetail(id) {
+    this.data.loading = true;
+    api
+      .getCcnuArticleDetail({ urlParams: { articleId: id } })
+      .then((data) => {
+        const info = data;
+        this.data = {
+          loading: false,
+          info,
+        };
+      })
+      .catch(() => {
+        console.error('获取详情失败');
+      });
+  }
 }
 
 export default Detail;

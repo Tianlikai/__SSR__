@@ -16,6 +16,7 @@ const initialState = window.__INITIAL__STATE__ || {}; // eslint-disable-line
 const appState = new AppState(initialState.appState);
 const homeStore = new HomeStore(initialState.homeStore);
 const detailStore = new DetailStore(initialState.detailStore);
+
 const dynamicReport = new ArticleStore(1);
 const dynamicCooperation = new ArticleStore(2);
 const scientificResearchReport = new ArticleStore(3);

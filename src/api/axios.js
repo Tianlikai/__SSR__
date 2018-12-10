@@ -54,7 +54,7 @@ Axios.interceptors.request.use(
 function fetch(options, urlOptions) {
   const opts = Object.assign({}, options, urlOptions);
   if (opts.urlParams) {
-    opts.url = replaceParams(options.url, options.urlParams);
+    opts.url = replaceParams(opts.url, opts.urlParams);
   }
   return new Promise((resolve, reject) => {
     Axios(opts)

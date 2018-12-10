@@ -15,26 +15,26 @@ import './style.scss';
 const { CommonLayoutContainer, CommonLayoutHeader, CommonLayoutContent } = CommonLayout;
 
 /* eslint-disable react/no-danger */
-@inject('Detail')
+@inject('detailStore')
 @observer
 class Article extends React.Component {
   static propTypes = {
     match: PropTypes.object,
-    Detail: PropTypes.object.isRequired,
+    detailStore: PropTypes.object.isRequired,
     routerData: PropTypes.object,
   };
 
   componentDidMount() {
-    const { match, Detail } = this.props;
+    const { match, detailStore } = this.props;
     const { params } = match;
     const { id } = params;
-    Detail.getCcnuArticleDetail(id);
+    detailStore.getCcnuArticleDetail(id);
   }
 
   render() {
-    const { routerData, Detail } = this.props;
+    const { routerData, detailStore } = this.props;
     const { breadcrumb } = routerData;
-    const { loading, info } = Detail.data;
+    const { loading, info } = detailStore.data;
     const {
       publishAt, title, content, enclosure,
     } = info;
