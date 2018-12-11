@@ -7,7 +7,7 @@ const CommonLayoutContainer = (props) => {
 };
 
 CommonLayoutContainer.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 };
 
 export default CommonLayoutContainer;

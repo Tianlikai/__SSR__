@@ -14,7 +14,7 @@ const CommonLayout = (props) => {
 };
 
 CommonLayout.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 };
 
 CommonLayout.CommonLayoutSide = CommonLayoutSide;

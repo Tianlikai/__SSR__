@@ -13,7 +13,7 @@ const CommonLayoutHeader = (props) => {
 
 CommonLayoutHeader.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 };
 
 export default CommonLayoutHeader;

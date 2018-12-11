@@ -14,7 +14,8 @@ const ListItems = (props) => {
   });
   return (
     <div className={cn}>
-      {config && config.map(item => <Item ARTICLE_TYPE={ARTICLE_TYPE} {...item} />)}
+      {config
+        && config.map(item => <Item key={item.articleId} ARTICLE_TYPE={ARTICLE_TYPE} {...item} />)}
     </div>
   );
 };

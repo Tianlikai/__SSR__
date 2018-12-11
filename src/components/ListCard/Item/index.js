@@ -8,7 +8,7 @@ import './style.scss';
 @withRouter
 export default class Item extends React.Component {
   static propTypes = {
-    type: PropTypes.string,
+    type: PropTypes.number,
     articleId: PropTypes.number,
     logo: PropTypes.any,
     title: PropTypes.string,

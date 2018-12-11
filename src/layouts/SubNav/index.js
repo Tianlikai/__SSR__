@@ -48,7 +48,8 @@ export default class SubNav extends React.Component {
     const { pathname } = history.location;
     return (
       <div className="subNav-container">
-        {config && config.map(subNav => <SubNavItem pathname={pathname} {...subNav} />)}
+        {config
+          && config.map(subNav => <SubNavItem key={subNav.to} pathname={pathname} {...subNav} />)}
       </div>
     );
   }

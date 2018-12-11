@@ -14,16 +14,18 @@ const Breadcrumb = (props) => {
   if (config && config.length > 0) {
     crumbs = config.map((label) => {
       if (typeof label === 'string') {
-        return <BreadcrumbItem label={label} />;
+        const now = new Date().getTime();
+        return <BreadcrumbItem key={now} label={label} />;
       }
       if (Object.prototype.toString.call(label) === '[object Object]') {
-        return <BreadcrumbItem to={label.to} label={label.name} />;
+        return <BreadcrumbItem key={label.key} to={label.to} label={label.name} />;
       }
       return null;
     });
   } else if (children) {
     // 这个地方等待处理
     // 满足多种组件定义需求
+    return null;
   }
   return <div className={cn}>{crumbs}</div>;
 };

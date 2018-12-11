@@ -38,7 +38,12 @@ class Article extends React.Component {
     const {
       publishAt, title, content, enclosure,
     } = info;
-    const config = [{ name: '首页', to: '/home' }, breadcrumb[0], breadcrumb[1], { name: '正文' }];
+    const config = [
+      { key: 'home', name: '首页', to: '/home' },
+      breadcrumb[0],
+      breadcrumb[1],
+      { key: 'article', name: '正文' },
+    ];
     const __html = { __html: content }; // eslint-disable-line
     const attachments = enclosure ? JSON.parse(enclosure) : false;
     return (
