@@ -32,9 +32,13 @@ export default class Study extends React.Component {
         <ul className="list-container">
           {list
             && list.map((info) => {
-              const { title, publishAt } = info;
+              const { title, publishAt, articleId } = info;
               return (
-                <li title={`${title}-${publishAt}`} onClick={this.handleMove.bind(null, info)}>
+                <li
+                  key={articleId}
+                  title={`${title}-${publishAt}`}
+                  onClick={this.handleMove.bind(null, info)}
+                >
                   <div className="list-text">{title}</div>
                   <div className="list-time">{publishAt}</div>
                 </li>

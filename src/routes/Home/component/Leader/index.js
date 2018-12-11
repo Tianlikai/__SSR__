@@ -16,7 +16,7 @@ const Leader = (props) => {
       </ModuleLine>
       <div className="section-container justify-content">
         {listLeader.map(leader => (
-          <div className="leader-item">
+          <div key={leader.key} className="leader-item">
             <div className="leader-imgWrapper">
               <img src={leader.logo} alt={leader.title} />
             </div>
@@ -31,7 +31,7 @@ const Leader = (props) => {
 };
 
 Leader.propTypes = {
-  listLeader: PropTypes.object,
+  listLeader: PropTypes.array,
   handleRedirectToLeader: PropTypes.func,
 };
 

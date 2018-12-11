@@ -18,6 +18,7 @@ const data = {
 const config = subNavConfig.CenterDynamic;
 
 const routesConfig = () => ({
+  key: 'centerDynamic',
   path: '/centerDynamic',
   component: Container,
   subNav: config,

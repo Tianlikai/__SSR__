@@ -38,6 +38,7 @@ class Home {
     };
     this.listLeader = [
       {
+        key: 'hxe',
         title: '胡祥恩',
         subTitle: '研究中心学术委员会主任',
         brief:
@@ -45,6 +46,7 @@ class Home {
         logo: hxe,
       },
       {
+        key: 'wf',
         title: '王枫',
         subTitle: '研究中心执行主任',
         brief:
@@ -52,6 +54,7 @@ class Home {
         logo: wf,
       },
       {
+        key: 'wwj',
         title: '王伟军',
         subTitle: '研究中心副主任',
         brief:
@@ -59,6 +62,7 @@ class Home {
         logo: wwj,
       },
       {
+        key: 'mzj',
         title: '马镇筠',
         subTitle: '研究中心副主任',
         brief:
@@ -68,6 +72,7 @@ class Home {
     ];
     this.listExpert = [
       {
+        key: 'ryan',
         title: '瑞安.贝克教授（Ryan Baker, Ph.D.）',
         subTitle: '',
         brief:
@@ -75,6 +80,7 @@ class Home {
         logo: Ryan,
       },
       {
+        key: 'hff',
         title: '胡飞芳教授',
         subTitle: '',
         brief:
@@ -82,6 +88,7 @@ class Home {
         logo: hff,
       },
       {
+        key: 'zzk',
         title: '周宗奎教授',
         subTitle: '',
         brief: '华中师范大学心理学院教授，华中师范大学青少年网络心理与行为教育部重点实验室主任。',

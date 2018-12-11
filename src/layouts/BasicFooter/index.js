@@ -18,10 +18,10 @@ const Item = (props) => {
       <div className="subTitle">{title}</div>
       <ul>
         {img
-          ? info.map(item => <li>{item}</li>)
+          ? info.map(item => <li key={item.key}>{item.text}</li>)
           : info.map(item => (
-            <li>
-              <a target="_blank" href={info.href || '#'}>
+            <li key={item.href}>
+              <a target="_blank" href={item.href || '#'}>
                 {item.text}
               </a>
             </li>
@@ -43,7 +43,7 @@ const BasicFooter = () => (
   <div className="layout-footer">
     <div className="footer-top">
       {footerData.map(footer => (
-        <Item {...footer} />
+        <Item key={footer.key} {...footer} />
       ))}
     </div>
     <div className="footer-bottom">

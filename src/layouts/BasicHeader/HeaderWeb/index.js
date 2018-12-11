@@ -44,7 +44,8 @@ export default class HeaderWeb extends React.Component {
           <img className="logo-web" src={Logo} alt="logo" />
         </Link>
         <div className="nav-right">
-          {navConfig && navConfig.map(nav => <HeaderItem pathname={pathname} {...nav} />)}
+          {navConfig
+            && navConfig.map(nav => <HeaderItem key={nav.to} pathname={pathname} {...nav} />)}
         </div>
       </div>
     );
