@@ -11,6 +11,8 @@ import HomeStore from './store/Home';
 import DetailStore from './store/Detail';
 import ArticleStore from './store/Article';
 
+import './style.scss';
+
 const initialState = window.__INITIAL__STATE__ || {}; // eslint-disable-line
 
 const appState = new AppState(initialState.appState);

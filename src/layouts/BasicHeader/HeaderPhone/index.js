@@ -42,8 +42,7 @@ export default class HeaderPhone extends React.Component {
   };
 
   hideSideMenu = (e) => {
-    const { stopPropagation } = e || {};
-    if (stopPropagation) stopPropagation();
+    if (e && e.stopPropagation) e.stopPropagation();
     this.setState(
       {
         visible: false,

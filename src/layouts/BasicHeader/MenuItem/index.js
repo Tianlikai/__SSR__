@@ -21,16 +21,15 @@ export default class MenuItem extends React.Component {
     showSubMenu: false,
   };
 
-  handleCallBack = (e) => {
-    e.stopPropagation();
+  handleCallBack = () => {
     const { callback } = this.props;
     if (callback) callback();
   };
 
-  toggleSubMenu() {
+  toggleSubMenu = () => {
     const { showSubMenu } = this.state;
     this.setState({ showSubMenu: !showSubMenu });
-  }
+  };
 
   render() {
     const { showSubMenu } = this.state;
