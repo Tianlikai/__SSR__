@@ -44,6 +44,7 @@ Axios.interceptors.request.use(
     return cfg;
   },
   (error) => {
+    /* eslint-disable no-console */
     console.error(
       `【Axios.interceptors.request】error.data.error.message:${error.data.error.message}`,
       3,
@@ -70,6 +71,7 @@ function fetch(options, urlOptions) {
         // console.log('axios data', data)
       })
       .catch((e) => {
+        /* eslint-disable no-console */
         console.error('error', e);
         if (e.response && e.response.status === 401) {
           // Storage.del('token')

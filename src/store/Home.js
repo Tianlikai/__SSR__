@@ -110,7 +110,7 @@ class Home {
         this.listBanner = data;
       })
       .catch(() => {
-        console.error('获取Banner失败');
+        console.error('获取Banner失败'); // eslint-disable-line
       });
   }
 
@@ -147,7 +147,7 @@ class Home {
         }
       })
       .catch(() => {
-        console.error(error);
+        console.error(error); // eslint-disable-line
       });
   }
 }

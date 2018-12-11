@@ -45,7 +45,7 @@ class Article {
         };
       })
       .catch(() => {
-        console.error('获取列表失败');
+        console.error('获取列表失败'); // eslint-disable-line
       });
   }
 }

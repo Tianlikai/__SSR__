@@ -31,7 +31,7 @@ class Detail {
         };
       })
       .catch(() => {
-        console.error('获取详情失败');
+        console.error('获取详情失败'); // eslint-disable-line
       });
   }
 }
