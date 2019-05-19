@@ -1,0 +1,11 @@
+.content {
+  margin-top: 1.1rem;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+}
+
+@media (max-width: 768px) {
+  .content {
+    margin-top: 0.8rem;
+  }
+}

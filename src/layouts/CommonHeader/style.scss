@@ -1,0 +1,15 @@
+.commonHeader-overView {
+  font-size: 0.28rem;
+  color: #333;
+  text-align: center;
+  padding-top: 0.4rem;
+  font-weight: 450;
+}
+
+@media (max-width: 769px) {
+  .commonHeader-overView {
+    font-size: 0.16rem;
+    line-height: 0.7rem;
+    padding-top: 0;
+  }
+}

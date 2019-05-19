@@ -1,0 +1,12 @@
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  body.open-modal {
+    position: fixed;
+    width: 100%;
+  }
+}

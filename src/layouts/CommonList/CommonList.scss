@@ -1,0 +1,75 @@
+.T-breadcrumb {
+  font-size: 0.18rem;
+  line-height: 1rem;
+  font-weight: 450;
+  .breadItem-item {
+    a {
+      .breadItem-label {
+        color: #666;
+      }
+    }
+  }
+  span:last-child .breadItem-label {
+    color: #999;
+  }
+}
+
+.T-header {
+  display: none;
+}
+
+.T-list {
+  .T-item {
+    border: none;
+    padding-bottom: 0;
+    margin-bottom: 0.65rem;
+    .T-item-info {
+      width: 100%;
+      .T-item-info-title {
+        margin-top: 0;
+        font-weight: normal;
+        &:hover {
+          color: #1d76a4;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+      .T-item-info-subTitle {
+        font-size: 0.16rem;
+        color: #666;
+      }
+      .T-item-info-Brief {
+        font-size: 0.16rem;
+        color: #666;
+      }
+    }
+  }
+}
+
+@media (max-width: 769px) {
+  .T-breadcrumb {
+    display: none;
+  }
+
+  .T-header {
+    display: block;
+    line-height: 0.7rem;
+  }
+
+  .T-list {
+    .T-item {
+      .T-item-info {
+        .T-item-info-title {
+          text-align: left;
+        }
+        .T-item-info-subTitle {
+          font-size: 0.12rem;
+          text-align: left;
+        }
+        .T-item-info-Brief {
+          font-size: 0.12rem;
+        }
+      }
+    }
+  }
+}

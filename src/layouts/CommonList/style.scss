@@ -1,0 +1,32 @@
+.pagination-container {
+  display: flex;
+  margin-bottom: 0.7rem;
+  .ant-pagination {
+    margin: 0 auto;
+    .ant-pagination-item-active {
+      border-color: #1d76a4;
+      background: #1d76a4;
+      a {
+        color: white;
+      }
+    }
+    .ant-pagination-item:focus,
+    .ant-pagination-item:hover {
+      border-color: #1d76a4;
+      background: #1d76a4;
+      a {
+        color: white;
+      }
+    }
+  }
+}
+
+.with-noInfo {
+  font-size: 14px;
+}
+
+@media (max-width: 769px) {
+  .pagination-container {
+    margin-bottom: 0.6rem;
+  }
+}
