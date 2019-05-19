@@ -54,3 +54,8 @@ export default class SubNav extends React.Component {
     );
   }
 }
+
+SubNav.propTypes = {
+  config: PropTypes.array,
+  history: PropTypes.object,
+};

@@ -51,3 +51,7 @@ export default class HeaderWeb extends React.Component {
     );
   }
 }
+
+HeaderWeb.propTypes = {
+  history: PropTypes.object,
+};
