@@ -25,3 +25,5 @@ yarn-error.log*
 /build/dll/base-manifest.json
 /build/dll/bundle-conf.json
 /build/dll/versions.json
+
+.package-lock.json
